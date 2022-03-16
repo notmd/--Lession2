@@ -27,7 +27,7 @@ class Paginator implements Countable, Iterator
         return $this->total;
     }
 
-    public function url(int $page)
+    public function url(int $page): string
     {
         if ($page <= 0) {
             $page = 1;
@@ -36,7 +36,7 @@ class Paginator implements Countable, Iterator
         return '/' . Request::uri() . '?' . http_build_query([...Request::query(), 'page' => $page]);
     }
 
-    public function previousPageUrl()
+    public function previousPageUrl(): ?string
     {
         if ($this->currentPage() > 1) {
             return $this->url($this->currentPage() - 1);
@@ -59,7 +59,7 @@ class Paginator implements Countable, Iterator
         return null;
     }
 
-    public function hasMorePages()
+    public function hasMorePages(): bool
     {
         return $this->currentPage() < $this->lastPage;
     }

@@ -37,6 +37,7 @@ class Router
     {
         if (array_key_exists($uri, $this->routes[$requestMethod])) {
             $callable = $this->routes[$requestMethod][$uri];
+
             return call_user_func([new $callable[0], $callable[1]]);
         }
 

@@ -23,15 +23,6 @@ class Database
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function fetch(string $table)
-    {
-        $statement = $this->pdo->prepare("select * from `{$table} limit`");
-
-        $statement->execute();
-
-        return $statement->fetch(PDO::FETCH_ASSOC);
-    }
-
     public function insert(string $table, array $parameters): string | false
     {
         $sql = sprintf(

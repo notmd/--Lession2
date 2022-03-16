@@ -5,7 +5,6 @@ namespace App\Core;
 use Exception;
 use Psr\Container\ContainerInterface;
 
-
 class Container implements ContainerInterface
 {
     protected  array $instances = [];

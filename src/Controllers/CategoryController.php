@@ -23,6 +23,7 @@ class CategoryController
         } else {
             $data['categories'] = Category::make()->paginate('SELECT * from categories', [], 5);
         }
+
         return view('category/index', $data);
     }
 

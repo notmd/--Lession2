@@ -13,6 +13,7 @@ abstract class AbstractModel
     protected Database $database;
 
     protected array $attributes = [];
+
     protected string $primaryKey = 'id';
 
     public function __construct()
@@ -64,7 +65,10 @@ abstract class AbstractModel
     {
         $primaryValue = $this->attributes[$this->primaryKey];
 
-        $this->database->statement("DELETE FROM {$this->getTableName()} WHERE {$this->primaryKey} = $primaryValue");
+        $this->database->statement("DELETE FROM {$this->getTableName()} WHERE {$this->primaryKey} = ?", [
+            $primaryValue
+        ]);
+
         $this->attributes = [];
     }
 
