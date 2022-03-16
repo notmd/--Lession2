@@ -22,6 +22,11 @@ class Paginator implements Countable, Iterator
         $this->lastPage = max((int) ceil($total / $perPage), 1);
     }
 
+    public function total(): int
+    {
+        return $this->total;
+    }
+
     public function url(int $page)
     {
         if ($page <= 0) {

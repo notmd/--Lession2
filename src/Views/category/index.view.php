@@ -13,7 +13,7 @@
             </div>
         </form>
         <div class="d-flex justify-content-between mt-2">
-            <p class="fw-light">Found <?= count($categories) ?> results.</p>
+            <p class="fw-light">Found <?= $categories->total() ?> results.</p>
             <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#createModal">Create</button>
         </div>
         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
