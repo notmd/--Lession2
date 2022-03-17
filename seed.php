@@ -5,9 +5,10 @@ use App\Models\Category;
 
 require 'bootstrap.php';
 
+$c = 1;
 for ($i = 1; $i <= 3; $i++) {
     $category = Category::make()->create([
-        'name' => 'Category 1'
+        'name' => 'Category ' . $i
     ]);
 
     for ($j = 1; $j <= 2; $j++) {
@@ -15,9 +16,10 @@ for ($i = 1; $i <= 3; $i++) {
          * @var Product
          */
         $product = Product::make()->create([
-            'name' => 'Product ' . $i * $j,
+            'name' => 'Product ' . $c,
             'category_id' => $category->id
         ]);
+        $c++;
 
         $img_url = $product->genImageUrl('png');
 
